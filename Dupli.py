@@ -1010,11 +1010,12 @@ def Rec(Rec_ID):
                 fill = "#000000",
                 font = ("None", int(24.0)))
             else:
+                ty = drop.get() 
                 print("1.General NON AC single rooms           Rs.2500")
                 print("2.General AC single rooms               Rs.5000")
                 print("3.Shared Rooms ")
                 a = int(input("Select a room Type "))
-                if a==1:
+                if radio=="NONAC" and ty == "single":
                     cursor.execute("select Room_Number from rooms where Avail = '{}' and price = '{}'".format("EMPTY","2500"))
                     cursor.fetchall()
                     rows = cursor.rowcount
@@ -1028,7 +1029,7 @@ def Rec(Rec_ID):
                         rooms_avail = cursor.fetchall()
                         rooms_avail = (rooms_avail[0])
                         room_select= rooms_avail[0]
-                        a = int(input("Press 1 to confirm room Booking"))
+                        RMA = Label(text="Rooms Available",width=100,height=20,font=30).place(x=400,y=1000)
                     if a ==1:
                         cursor.execute("update rooms set Usage_ID='{}',Avail='{}',Entry_date='{}' where Room_Number='{}';".format(ID,"FULL",now_date,room_select))
                         conn.commit()
@@ -1933,5 +1934,4 @@ def login(abc=0):
 window = Tk()
 window.geometry("1440x825")
 window.configure(bg = "#ffffff")
-Rec("REC111")
 login(0)
