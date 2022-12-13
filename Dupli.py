@@ -1259,6 +1259,8 @@ def Rec(Rec_ID):
                 text = "                     Patient ID:"+str(ID_NEW),
                 fill = "#000000",
                 font = ("None", int(27.512195587158203)))
+            time.sleep(4)
+            RegPatient()    
        
         canvas = Canvas(
             window,
