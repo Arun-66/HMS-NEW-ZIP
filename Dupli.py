@@ -49,7 +49,7 @@ def Doctor(Doc_ID):
                 print(vital)
                 vital = vital[0]
                 canvas.create_text(#name
-                    203.0, 302.0,
+                    213.0, 302.0,
                     text = Ans[0],
                     fill = "#000000",
                     font = ("None", int(18.0)))
@@ -857,7 +857,7 @@ def appointment():
         Name=str(input("Enter Name of Patient"))
         print("Please Register Patient Before Visiting Doctor....")
         ID = 1
-    date_components = input('Enter date of appointment formatted as YYYY-MM-DD: ').split('-')
+    date_components = input('Enter date of appointment formatted as YYYY/MM/DD: ').split('/')
     year, month, day = [int(item) for item in date_components]
     d = date(year,month,day)
     time.sleep(2) 
@@ -1628,7 +1628,7 @@ def Rec(Rec_ID):
         width = 100,
         height = 127)
 
-    img8 = PhotoImage(file = f"Logout.png")
+    img8 = PhotoImage(file = f"Logout2.png")
     b8 = Button(
         image = img8,
         borderwidth = 0,
@@ -1792,6 +1792,8 @@ def Admin(Adm_ID):
 
 
 def login(abc=0):
+    def forget():
+        messagebox.showinfo('Forgot Password','Please Contact The Admin To Reset Your Password')            
     def btn_clicked():
         password = Password.get()
         ID = IDN.get()
@@ -1877,6 +1879,7 @@ def login(abc=0):
         bd = 0,
         bg = "#ffffff",
         font = ("None", int(18.0)),
+        show="●",
         highlightthickness = 0)
 
     Password.place(
@@ -1916,7 +1919,7 @@ def login(abc=0):
         image = img2,
         borderwidth = 0,
         highlightthickness = 0,
-        command = btn_clicked,
+        command = forget,
         relief = "flat")
 
     b2.place(
